@@ -33,7 +33,6 @@
 #include <netlink/route/link/vrf.h>
 
 #include <linux/if_link.h>
-#include <linux-private/linux/rtnetlink.h>
 
 #define VRF_TABLE_ID_MAX  RT_TABLE_MAX
 

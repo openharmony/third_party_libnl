@@ -25,11 +25,13 @@
 #include <netlink/cli/utils.h>
 #include <locale.h>
 
-#include "lib/defs.h"
+#include "defs.h"
 
 #ifdef HAVE_DLFCN_H
 #include <dlfcn.h>
 #endif
+
+#define PKGLIBDIR "out"
 
 /**
  * Parse a text based 32 bit unsigned integer argument

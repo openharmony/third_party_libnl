@@ -226,8 +226,8 @@ double nl_cancel_down_bits(unsigned long long l, char **unit)
 
 int nl_rate2str(unsigned long long rate, int type, char *buf, size_t len)
 {
-	char *unit;
-	double frac;
+	char *unit = NULL;
+	double frac = 0.0;
 
 	switch (type) {
 	case NL_BYTE_RATE:
@@ -374,6 +374,7 @@ char *nl_size2str(const size_t size, char *buf, const size_t len)
 	}
 
 	BUG();
+	return NULL;
 }
 
 /**
