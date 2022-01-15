@@ -5,7 +5,7 @@
 
 #### Usage Guidelines
 
-- Refer to the official API documentation: [https://www.infradead.org/~tgr/libnl/doc/api/index.html#main_intro](https://www.infradead.org/~tgr/libnl/doc/api/index.html#main_intro)
+- Refer to the official API documentation: [https://www.infradead.org/~tgr/libnl/doc/api/group__cb.html](https://www.infradead.org/~tgr/libnl/doc/api/group__cb.html)
 
 #### Contribution
 

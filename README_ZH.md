@@ -6,7 +6,7 @@
 
 #### 使用说明
 
-- 参考官方API文档: [https://www.infradead.org/~tgr/libnl/doc/api/index.html#main_intro](https://www.infradead.org/~tgr/libnl/doc/api/index.html#main_intro)
+- 参考官方API文档: [https://www.infradead.org/~tgr/libnl/doc/api/group__cb.html](https://www.infradead.org/~tgr/libnl/doc/api/group__cb.html)
 
 #### 参与贡献
 
