@@ -1,5 +1,5 @@
 [
-    {
+  {
     "Name": "libnl",
     "License": "LGPL-2.1",
     "License File": "COPYING",
@@ -7,5 +7,5 @@
     "Owner": "xusai4@huawei.com"
     "Upstream URL": "https://github.com/thom311/libnl/tree/libnl3_5_0",
     "Description": "Libnl library for user - mode and kernel - mode communication."
-    }
+  }
 ]
