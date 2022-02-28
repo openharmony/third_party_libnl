@@ -8,6 +8,16 @@
 
 - [参考官方API文档](https://www.infradead.org/~tgr/libnl/doc/api/group__cb.html)
 
+#### 头文件生成
+
+本仓中的include/netlink/version.h及lib/defs.h文件是通过以下步骤生成
+
+1.生成头文件及所需工具，执行下列脚本
+    ```
+    bash install_tool.sh
+    ```
+在上述脚本中安装autoconf工具后执行根目录的autogen.sh此时会生成configure、defs.h.in和defs.h.in~文件。继续安装libtool、pkg-config工具，在根目录执行configure文件后，会在include/netlink目录下生成version.h，lib目录下生成defs.h文件
+
 #### 参与贡献
 
 [如何贡献](https://gitee.com/openharmony/docs/blob/HEAD/zh-cn/contribute/参与贡献.md)
