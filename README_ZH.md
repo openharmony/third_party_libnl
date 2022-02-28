@@ -16,7 +16,7 @@
     ```
     bash install_tool.sh
     ```
-在上述脚本中安装autoconf工具后执行根目录的autogen.sh此时会生成configure、defs.h.in和defs.h.in~文件。继续安装libtool、pkg-config工具，在根目录执行configure文件后，会在include/netlink目录下生成version.h，lib目录下生成defs.h文件
+注：上述脚本进行了如下操作，首先安装了autoconf、libtool、pkg-config工具，然后执行libnl根目录autogen.sh，生成configure、defs.h.in和defs.h.in~文件。最后执行configure，会在include/netlink目录下生成version.h，lib目录下生成defs.h文件
 
 #### 参与贡献
 

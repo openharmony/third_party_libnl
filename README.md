@@ -9,13 +9,13 @@
 
 #### Generates  Header File
 
-In this warehouse include/netlink/version. h and lib/defs.h file is generated through the following steps
+In this warehouse include/netlink/version.h and lib/defs.h file is generated through the following steps
 
 1.Run the following script to generate the tools required for the header file
     ```
     bash install_tool.sh
     ```
-After the autoconf tool is installed in the preceding script,the autogen.sh of the root directory is executed.The configure,defs.h.in, and defs.h.in~ files are generated. After the libtool and pkg-config tools are installed and the configure file is executed in the root directory, version.h is generated in the include/netlink directory, and defs.h is generated in the lib directory
+Note:The preceding script performs following operations:Install the autoconf,libtool and pkg-config tools,execute the autogen.sh file in the libnl root directory,generate the configure,defs.h.in and defs.h.in~ files,and then execute the configure command,The version.h file is generated in the include/netlink directory and defs.h file is generated in the lib directory.
 #### Contribution
 
 [How to involve](https://gitee.com/openharmony/docs/blob/HEAD/zh-cn/contribute/参与贡献.md)
