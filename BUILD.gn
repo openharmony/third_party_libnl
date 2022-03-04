@@ -62,15 +62,29 @@ action("ematch_syntax") {
 }
 
 if (!defined(ohos_lite)) {
+  grammer_outputs = get_target_outputs(":build_grammar")
+  grammer_path = get_path_info(grammer_outputs[0], "dir")
+  pktloc_outputs = get_target_outputs(":pktloc_syntax")
+  pktloc_path = get_path_info(pktloc_outputs[0], "dir")
+  ematch_outputs = get_target_outputs(":ematch_grammar")
+  ematch_path = get_path_info(ematch_outputs[0], "dir")
+  syntax_outputs = get_target_outputs(":ematch_syntax")
+  syntax_path = get_path_info(syntax_outputs[0], "dir")
+
+  config("libnl_config") {
+    include_dirs = [
+	  rebase_path("$grammer_path"),
+      rebase_path("$pktloc_path"),
+      rebase_path("$ematch_path"),
+      rebase_path("$syntax_path"),
+      "include",
+      "lib",
+      "lib/route/cls",
+      "lib/route",
+    ]
+  }
   ohos_shared_library("libnl_share") {
-    grammer_outputs = get_target_outputs(":build_grammar")
-    grammer_path = get_path_info(grammer_outputs[0], "dir")
-    pktloc_outputs = get_target_outputs(":pktloc_syntax")
-    pktloc_path = get_path_info(pktloc_outputs[0], "dir")
-    ematch_outputs = get_target_outputs(":ematch_grammar")
-    ematch_path = get_path_info(ematch_outputs[0], "dir")
-    syntax_outputs = get_target_outputs(":ematch_syntax")
-    syntax_path = get_path_info(syntax_outputs[0], "dir")
+    public_configs = [ ":libnl_config" ]
 
     sources = [
       "lib/addr.c",
@@ -224,18 +238,6 @@ if (!defined(ohos_lite)) {
       rebase_path("$pktloc_path/pktloc_syntax.c"),
       rebase_path("$ematch_path/ematch_grammar.c"),
       rebase_path("$syntax_path/ematch_syntax.c"),
-    ]
-    include_dirs = [
-      "include",
-      "lib",
-      "lib/route/cls",
-      "lib/route",
-    ]
-    include_dirs += [
-      rebase_path("$grammer_path"),
-      rebase_path("$pktloc_path"),
-      rebase_path("$ematch_path"),
-      rebase_path("$syntax_path"),
     ]
     defines = [ "NL_DEBUG" ]
     cflags = [
