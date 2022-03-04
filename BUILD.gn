@@ -73,7 +73,7 @@ if (!defined(ohos_lite)) {
 
   config("libnl_config") {
     include_dirs = [
-	  rebase_path("$grammer_path"),
+      rebase_path("$grammer_path"),
       rebase_path("$pktloc_path"),
       rebase_path("$ematch_path"),
       rebase_path("$syntax_path"),
