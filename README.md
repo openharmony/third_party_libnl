@@ -15,7 +15,7 @@ In this warehouse include/netlink/version.h and lib/defs.h file is generated thr
     ```
     bash install_tool.sh
     ```
-Note:The preceding script performs following operations:Install the autoconf,libtool and pkg-config tools,execute the autogen.sh file in the libnl root directory,generate the configure,defs.h.in and defs.h.in~ files,and then execute the configure command,The version.h file is generated in the include/netlink directory and defs.h file is generated in the lib directory.
+Note:The preceding script performs following operations:Install the autoconf,libtool and pkg-config tools,execute the autogen.sh file in the libnl root directory,generate the configure,defs.h.in and defs.h.in~ files,and then execute the configure command,The version.h file is generated in the include/netlink directory,defs.h file is generated in the lib directory and Makefile is generated in libnl root directory.and then execute the make command,The ematch_grammar.c、ematch_grammar.h、ematch_syntax.c、ematch_syntax.h file is generated in the lib/route/cls directory,pktloc_grammar.c、pktloc_grammar.h、pktloc_syntax.c、pktloc_syntax.h file is generated in the lib/route directory
 #### Contribution
 
 [How to involve](https://gitee.com/openharmony/docs/blob/HEAD/zh-cn/contribute/参与贡献.md)

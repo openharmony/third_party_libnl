@@ -17,5 +17,6 @@ sudo apt-get install libtool
 sudo apt-get install pkg-config
 ./autogen.sh
 ./configure
+make
 
 exit 0
