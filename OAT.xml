@@ -62,6 +62,7 @@
             </filefilter>
             <filefilter name="defaultPolicyFilter" desc="Filters for compatibility，license header policies">
                 <filteritem type="filename" name="BUILD.gn" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
+                <filteritem type="filename" name="install_tool.sh" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
                 <filteritem type="filename" name="COPYING" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
                 <filteritem type="filename" name="ChangeLog" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
                 <filteritem type="filename" name="autogen.sh" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
@@ -85,6 +86,7 @@
             </filefilter>
             <filefilter name="copyrightPolicyFilter" desc="Filters for copyright header policies">
                 <filteritem type="filename" name="BUILD.gn" desc="Filters for copyright header policies"/>
+                <filteritem type="filename" name="install_tool.sh" desc="Filters for copyright header policies"/>
                 <filteritem type="filename" name="autogen.sh" desc="Filters for copyright header policies"/>
                 <filteritem type="filename" name="Makefile.am" desc="Filters for copyright header policies"/>
                 <filteritem type="filename" name="configure.ac" desc="Filters for copyright header policies"/>
