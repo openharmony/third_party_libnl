@@ -16,7 +16,7 @@
     ```
     bash install_tool.sh
     ```
-注：上述脚本进行了如下操作，首先安装了autoconf、libtool、pkg-config工具，其次执行libnl根目录autogen.sh，生成configure、defs.h.in和defs.h.in~文件。然后执行configure，会在include/netlink目录下生成version.h，lib目录下生成defs.h文件，libnl根目录下生成Makefile文件。最后执行make，会在lib/route/cls目录下生成ematch_grammar.c、ematch_grammar.h、ematch_syntax.c、ematch_syntax.h，lib/route目录下生成pktloc_grammar.c、pktloc_grammar.h、pktloc_syntax.c、pktloc_syntax.h文件。
+注：上述脚本进行了如下操作，首先安装了autoconf、libtool、pkg-config工具，其次执行libnl根目录autogen.sh，生成configure、defs.h.in和defs.h.in~文件。然后执行configure，会在include/netlink目录下生成version.h，lib目录下生成defs.h文件。
 
 #### 参与贡献
 
