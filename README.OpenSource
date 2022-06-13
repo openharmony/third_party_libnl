@@ -1,6 +1,6 @@
 [
   {
-    "Name": "libnl",
+    "Name": "libnl3",
     "License": "LGPL-2.1",
     "License File": "COPYING",
     "Version Number": "3.5.0",
