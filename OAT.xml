@@ -50,9 +50,17 @@
         <licensefile>COPYING</licensefile>
         <policylist>
             <policy name="projectPolicy" desc="">
-                <!--policyitem type="compatibility" name="GPL-2.0+" path=".*" desc="Process that runs independently, invoked by the X process."/-->
-                <!--policyitem type="license" name="LGPL" path=".*" desc="Dynamically linked by module X"/-->
-                <!--policyitem type="copyright" name="xxx" path=".*" rule="may" group="defaultGroup" filefilter="copyrightPolicyFilter" desc="Developed by X Company"/-->
+                <policyitem type="compatibility" name="GPL-2.0+ WITH Linux-syscall-note" path="include/linux-private/linux/.*.h" desc="They are used in dynamic link mode."/>
+                <policyitem type="compatibility" name="GPL-2.0 WITH Linux-syscall-note" path="include/linux-private/linux/.*.h" desc="They are used in dynamic link mode."/>
+                <policyitem type="compatibility" name="LGPL-2.1-only" path="lib/.*.c" desc="They are used in dynamic link mode."/>
+                <policyitem type="compatibility" name="LGPL-2.1-only" path="src/.*.c" desc="They are used in dynamic link mode."/>
+                <policyitem type="compatibility" name="LGPL" path="include/netlink/.*" desc="This file use LGPL license.They are used in dynamic link mode."/>
+                <policyitem type="compatibility" name="LGPL" path="include/netlink-private/.*" desc="They are used in dynamic link mode."/>
+                <policyitem type="compatibility" name="LGPL" path="lib/route/.*" desc="They are used in dynamic link mode."/>
+                <policyitem type="compatibility" name="LGPL" path="lib/cli/.*" desc="They are used in dynamic link mode."/>
+                <policyitem type="compatibility" name="LGPL" path="configure.ac" desc="They are used in dynamic link mode."/>
+                <policyitem type="compatibility" name="LGPL" path="BUILD.gn" desc="They are used in dynamic link mode."/>
+                <policyitem type="compatibility" name="LGPL" path="install_tool.sh" desc="They are used in dynamic link mode."/>
             </policy>
         </policylist>
         <filefilterlist>
@@ -60,22 +68,11 @@
                 <filteritem type="filename" name="*.8|*.png|*.sym" desc="desc files"/>
                 <filteritem type="filepath" name="tests/.*" desc="Test files"/>
             </filefilter>
-            <filefilter name="defaultPolicyFilter" desc="Filters for compatibility，license header policies">
-                <filteritem type="filename" name="BUILD.gn" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
-                <filteritem type="filename" name="install_tool.sh" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
-                <filteritem type="filename" name="COPYING" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
-                <filteritem type="filename" name="ChangeLog" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
+            <filefilter name="defaultPolicyFilter" desc="Filters for compatibility,license header policies">
+                <filteritem type="filename" name="COPYING" desc="Copying files."/>
+                <filteritem type="filename" name="ChangeLog" desc="not use this file"/>
                 <filteritem type="filename" name="autogen.sh" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
                 <filteritem type="filename" name="Makefile.am" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
-                <filteritem type="filename" name="configure.ac" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
-                <filteritem type="filepath" name="include/linux-private/linux/.*" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
-                <filteritem type="filepath" name="include/netlink/.*" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
-                <filteritem type="filepath" name="include/netlink-private/.*" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
-                <filteritem type="filepath" name="lib/.*" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
-                <filteritem type="filepath" name="src/.*" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
-                <filteritem type="filepath" name="python/.*" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
-                <filteritem type="filepath" name="doc/src/.*" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
-                <filteritem type="filepath" name="doc/AUTHORS" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
                 <filteritem type="filepath" name="doc/DoxygenLayout.xml" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
                 <filteritem type="filepath" name="doc/doxygen-link.py" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
                 <filteritem type="filepath" name="doc/gen-tags.sh" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
@@ -85,8 +82,6 @@
                 <filteritem type="filepath" name="tools/build_release.sh" desc="No License specified while permission to use, copy, modify, and distribute are granted"/>
             </filefilter>
             <filefilter name="copyrightPolicyFilter" desc="Filters for copyright header policies">
-                <filteritem type="filename" name="BUILD.gn" desc="Filters for copyright header policies"/>
-                <filteritem type="filename" name="install_tool.sh" desc="Filters for copyright header policies"/>
                 <filteritem type="filename" name="autogen.sh" desc="Filters for copyright header policies"/>
                 <filteritem type="filename" name="Makefile.am" desc="Filters for copyright header policies"/>
                 <filteritem type="filename" name="configure.ac" desc="Filters for copyright header policies"/>
