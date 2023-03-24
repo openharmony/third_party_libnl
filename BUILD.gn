@@ -254,6 +254,9 @@ if (!defined(ohos_lite)) {
       "-DSYSCONFDIR=\"\\\"/etc/libnl\\\"\"",
     ]
     subsystem_name = "wpa_supplicant-2.9"
-    install_images = [ "system" ]
+    install_images = [
+      "system",
+      "updater",
+    ]
   }
 }
