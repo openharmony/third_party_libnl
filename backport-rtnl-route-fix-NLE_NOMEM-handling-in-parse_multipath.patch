@@ -1,0 +1,40 @@
+From fca338b9f453295037f96e8fe9236ebb4763dd25 Mon Sep 17 00:00:00 2001
+From: Thomas Haller <thaller@redhat.com>
+Date: Wed, 15 Apr 2020 13:17:40 +0200
+Subject: [PATCH] rtnl/route: fix NLE_NOMEM handling in parse_multipath()
+
+Conflict:NA
+Reference:https://github.com/thom311/libnl/commit/fca338b9f453295037f96e8fe9236ebb4763dd25
+
+---
+ lib/route/route_obj.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/lib/route/route_obj.c b/lib/route/route_obj.c
+index b5cc4ed4..de56a76b 100644
+--- a/lib/route/route_obj.c
++++ b/lib/route/route_obj.c
+@@ -1072,8 +1072,10 @@ static int parse_multipath(struct rtnl_route *route, struct nlattr *attr)
+ 
+ 				addr = nl_addr_alloc_attr(ntb[RTA_NEWDST],
+ 							  route->rt_family);
+-				if (!addr)
++				if (!addr) {
++					err = -NLE_NOMEM;
+ 					goto errout;
++				}
+ 
+ 				err = rtnl_route_nh_set_newdst(nh, addr);
+ 				nl_addr_put(addr);
+@@ -1085,8 +1087,10 @@ static int parse_multipath(struct rtnl_route *route, struct nlattr *attr)
+ 				struct nl_addr *addr;
+ 
+ 				addr = rtnl_route_parse_via(ntb[RTA_VIA]);
+-				if (!addr)
++				if (!addr) {
++					err = -NLE_NOMEM;
+ 					goto errout;
++				}
+ 
+ 				err = rtnl_route_nh_set_via(nh, addr);
+ 				nl_addr_put(addr);

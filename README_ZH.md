@@ -8,15 +8,21 @@
 
 - [参考官方API文档](https://www.infradead.org/~tgr/libnl/doc/api/group__cb.html)
 
-#### 头文件生成
+#### patch包说明
 
-本仓中的include/netlink/version.h及lib/defs.h文件是通过以下步骤生成
+以下patch包为openEuler:libnl3开源库本身携带
+backport-lib-add-include-netlink-private-nl-auto-h-header.patch
+backport-lib-use-proper-int-type-for-id-attributes-in-nl_object_identical.patch
+backport-route-link-add-RTNL_LINK_REASM_OVERLAPS-stat.patch
+backport-route-link-Check-for-null-pointer-in-macvlan.patch
+backport-rtnl-link-fix-leaking-rtnl_link_af_ops-in-link_msg_parser.patch
+backport-rtnl-route-fix-NLE_NOMEM-handling-in-parse_multipath.patch
+solve-redefinition-of-struct-ipv6_mreq.patch
 
-1.生成头文件及所需工具，执行下列脚本
-    ```
-    bash install_tool.sh
-    ```
-注：上述脚本进行了如下操作，首先安装了autoconf、libtool、pkg-config工具，其次执行libnl根目录autogen.sh，生成configure、defs.h.in和defs.h.in~文件。然后执行configure，会在include/netlink目录下生成version.h，lib目录下生成defs.h文件。
+以下patch包为解决在OpenHarmony工程下编译存在的问题自行添加
+lib-utils-c.patch
+src-lib-utils-c.patch
+vrf-c.patch
 
 #### 参与贡献
 

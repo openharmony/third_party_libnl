@@ -1,0 +1,8 @@
+229,230c229,230
+< 	char *unit;
+< 	double frac;
+---
+> 	char *unit = NULL;
+> 	double frac = 0.0;
+376a377
+> 	return buf;

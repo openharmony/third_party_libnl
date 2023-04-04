@@ -1,0 +1,29 @@
+From f9d0181ceb2fc7c54abf89eff4c6b57e8fe6dd97 Mon Sep 17 00:00:00 2001
+From: Thomas Haller <thaller@redhat.com>
+Date: Fri, 17 Apr 2020 16:31:10 +0200
+Subject: [PATCH] lib: use proper int type for id attributes in
+ nl_object_identical()
+
+Conflict:NA
+Reference:https://github.com/thom311/libnl/commit/f9d0181ceb2fc7c54abf89eff4c6b57e8fe6dd97
+
+---
+ lib/object.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/lib/object.c b/lib/object.c
+index d15cd152..07a21d22 100644
+--- a/lib/object.c
++++ b/lib/object.c
+@@ -314,8 +314,9 @@ int nl_object_identical(struct nl_object *a, struct nl_object *b)
+ 		return 0;
+ 
+ 	if (ops->oo_id_attrs_get) {
+-		int req_attrs_a = ops->oo_id_attrs_get(a);
+-		int req_attrs_b = ops->oo_id_attrs_get(b);
++		uint32_t req_attrs_a = ops->oo_id_attrs_get(a);
++		uint32_t req_attrs_b = ops->oo_id_attrs_get(b);
++
+ 		if (req_attrs_a != req_attrs_b)
+ 			return 0;
+ 		req_attrs = req_attrs_a;
