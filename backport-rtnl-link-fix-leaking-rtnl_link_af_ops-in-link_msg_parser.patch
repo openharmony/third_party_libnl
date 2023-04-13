@@ -1,0 +1,25 @@
+From 2957d8f6c8bf1189545a7b0c1a49c4ccb26984a1 Mon Sep 17 00:00:00 2001
+From: Thomas Haller <thaller@redhat.com>
+Date: Wed, 15 Apr 2020 14:01:09 +0200
+Subject: [PATCH] rtnl/link: fix leaking rtnl_link_af_ops in link_msg_parser()
+
+Conflict:NA
+Reference:https://github.com/thom311/libnl/commit/2957d8f6c8bf1189545a7b0c1a49c4ccb26984a1
+
+---
+ lib/route/link.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/lib/route/link.c b/lib/route/link.c
+index 0ce4b0ab..b73a8c5f 100644
+--- a/lib/route/link.c
++++ b/lib/route/link.c
+@@ -722,6 +722,8 @@ static int link_msg_parser(struct nl_cache_ops *ops, struct sockaddr_nl *who,
+ 			int remaining;
+ 
+ 			nla_for_each_nested(af_attr, tb[IFLA_AF_SPEC], remaining) {
++				_nl_auto_rtnl_link_af_ops struct rtnl_link_af_ops *af_ops = NULL;
++
+ 				af_ops = af_lookup_and_alloc(link, nla_type(af_attr));
+ 				if (af_ops && af_ops->ao_parse_af) {
+ 					char *af_data = link->l_af_data[nla_type(af_attr)];

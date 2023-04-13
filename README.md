@@ -9,13 +9,22 @@
 
 #### Generates  Header File
 
-In this warehouse include/netlink/version.h and lib/defs.h file is generated through the following steps
+The following patches is carried by the openEuler:libnl3 open source library:
 
-1.Run the following script to generate the tools required for the header file
-    ```
-    bash install_tool.sh
-    ```
-Note:The preceding script performs following operations:Install the autoconf,libtool and pkg-config tools,execute the autogen.sh file in the libnl root directory,generate the configure,defs.h.in and defs.h.in~ files,and then execute the configure command,The version.h file is generated in the include/netlink directory,defs.h file is generated in the lib directory.
+backport-lib-add-include-netlink-private-nl-auto-h-header.patch
+backport-lib-use-proper-int-type-for-id-attributes-in-nl_object_identical.patch
+backport-route-link-add-RTNL_LINK_REASM_OVERLAPS-stat.patch
+backport-route-link-Check-for-null-pointer-in-macvlan.patch
+backport-rtnl-link-fix-leaking-rtnl_link_af_ops-in-link_msg_parser.patch
+backport-rtnl-route-fix-NLE_NOMEM-handling-in-parse_multipath.patch
+solve-redefinition-of-struct-ipv6_mreq.patch
+
+The following patches are added to solve the compilation problem under the OpenHarmony project:
+
+lib-utils-c.patch
+src-lib-utils-c.patch
+vrf-c.patch
+
 #### Contribution
 
 [How to involve](https://gitee.com/openharmony/docs/blob/HEAD/zh-cn/contribute/参与贡献.md)
