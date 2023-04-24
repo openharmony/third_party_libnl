@@ -21,7 +21,5 @@ patch -p1 < $1/backport-route-link-Check-for-null-pointer-in-macvlan.patch --fuz
 patch -p1 < $1/backport-rtnl-link-fix-leaking-rtnl_link_af_ops-in-link_msg_parser.patch --fuzz=0 --no-backup-if-mismatch
 patch -p1 < $1/backport-rtnl-route-fix-NLE_NOMEM-handling-in-parse_multipath.patch --fuzz=0 --no-backup-if-mismatch
 patch -p1 < $1/solve-redefinition-of-struct-ipv6_mreq.patch --fuzz=0 --no-backup-if-mismatch
-patch lib/utils.c < $1/lib-utils-c.patch
-patch lib/route/link/vrf.c < $1/vrf-c.patch
-patch src/lib/utils.c < $1/src-lib-utils-c.patch
+patch -p1 < $1/solve-oh-compile-problem.patch --fuzz=0 --no-backup-if-mismatch
 exit 0

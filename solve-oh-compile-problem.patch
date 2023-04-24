@@ -1,0 +1,48 @@
+diff --git a/lib/route/link/vrf.c b/lib/route/link/vrf.c
+index 8b6b451..31d62f8 100644
+--- a/lib/route/link/vrf.c
++++ b/lib/route/link/vrf.c
+@@ -33,7 +33,6 @@
+ #include <netlink/route/link/vrf.h>
+ 
+ #include <linux/if_link.h>
+-#include <linux-private/linux/rtnetlink.h>
+ 
+ #define VRF_TABLE_ID_MAX  RT_TABLE_MAX
+ 
+diff --git a/lib/utils.c b/lib/utils.c
+index 496bf3b..a1dc815 100644
+--- a/lib/utils.c
++++ b/lib/utils.c
+@@ -226,8 +226,8 @@ double nl_cancel_down_bits(unsigned long long l, char **unit)
+ 
+ int nl_rate2str(unsigned long long rate, int type, char *buf, size_t len)
+ {
+-	char *unit;
+-	double frac;
++	char *unit = NULL;
++	double frac = 0.0;
+ 
+ 	switch (type) {
+ 	case NL_BYTE_RATE:
+@@ -374,6 +374,7 @@ char *nl_size2str(const size_t size, char *buf, const size_t len)
+ 	}
+ 
+ 	BUG();
++	return buf;
+ }
+ 
+ /**
+diff --git a/src/lib/utils.c b/src/lib/utils.c
+index 3aa2a90..99e9fe5 100644
+--- a/src/lib/utils.c
++++ b/src/lib/utils.c
+@@ -31,6 +31,8 @@
+ #include <dlfcn.h>
+ #endif
+ 
++#define PKGLIBDIR "/usr/local/lib"
++
+ /**
+  * Parse a text based 32 bit unsigned integer argument
+  * @arg arg		Integer in text form.
