@@ -16,7 +16,7 @@
     },
     "component": {
         "name": "thirdparty_libnl",
-        "subsystem": "wpa_supplicant-2.9",
+        "subsystem": "wpasupplicant2.9",
         "syscap": [],
         "features": [],
         "adapted_system_type": [ "standard" ],
