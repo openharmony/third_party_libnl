@@ -16,7 +16,7 @@
     },
     "component": {
         "name": "thirdparty_libnl",
-        "subsystem": "wpasupplicant",
+        "subsystem": "thirdparty",
         "syscap": [],
         "features": [],
         "adapted_system_type": [ "standard" ],
