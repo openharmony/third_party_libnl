@@ -15,7 +15,7 @@
         "zh": "README_ZH.md"
     },
     "component": {
-        "name": "thirdparty_libnl",
+        "name": "libnl",
         "subsystem": "thirdparty",
         "syscap": [],
         "features": [],
