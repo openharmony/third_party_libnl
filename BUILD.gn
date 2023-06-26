@@ -257,10 +257,12 @@ if (!defined(ohos_lite)) {
       #"-UNDEBUG",
       "-DSYSCONFDIR=\"\\\"/etc/libnl\\\"\"",
     ]
-    subsystem_name = "wpa_supplicant-2.9"
+
     install_images = [
       "system",
       "updater",
     ]
+    part_name = "libnl"
+    subsystem_name = "thirdparty"
   }
 }
