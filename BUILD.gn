@@ -262,6 +262,7 @@ if (!defined(ohos_lite)) {
       "system",
       "updater",
     ]
+    innerapi_tags = [ "chipsetsdk" ]
     part_name = "libnl"
     subsystem_name = "thirdparty"
   }
