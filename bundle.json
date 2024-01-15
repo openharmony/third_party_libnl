@@ -1,7 +1,7 @@
 {
     "name": "@ohos/libnl",
     "description": "Providing APIs to netlink protocol based Linux kernel interfaces.",
-    "version": "4.0",
+    "version": "1.0",
     "license": "LGPL V2.1",
     "publishAs": "code-segment",
     "segment": {
@@ -9,7 +9,7 @@
     },
     "dirs": {},
     "scripts": {},
-    "licensePath": "thirdparth/libnl-3.5.0/COPYING",
+    "licensePath": "thirdparth/libnl-3.7.0/COPYING",
     "readmePath":{
         "en": "README.md",
         "zh": "README_ZH.md"

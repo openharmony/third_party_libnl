@@ -1,18 +1,10 @@
 Name:          libnl3
-Version:       3.5.0
-Release:       4
+Version:       3.7.0
+Release:       1
 Summary:       Providing APIs to netlink protocol based Linux kernel interfaces
 License:       LGPLv2
 URL:           http://www.infradead.org/~tgr/libnl/
-Source:        https://github.com/thom311/libnl/releases/download/libnl3_5_0/libnl-3.5.0.tar.gz
-
-Patch6000:     backport-lib-add-include-netlink-private-nl-auto-h-header.patch
-Patch6001:     backport-lib-use-proper-int-type-for-id-attributes-in-nl_object_identical.patch
-Patch6002:     backport-route-link-add-RTNL_LINK_REASM_OVERLAPS-stat.patch
-Patch6003:     backport-route-link-Check-for-null-pointer-in-macvlan.patch
-Patch6004:     backport-rtnl-link-fix-leaking-rtnl_link_af_ops-in-link_msg_parser.patch
-Patch6005:     backport-rtnl-route-fix-NLE_NOMEM-handling-in-parse_multipath.patch
-Patch9000:     solve-redefinition-of-struct-ipv6_mreq.patch
+Source:        https://github.com/thom311/libnl/releases/download/libnl3_7_0/libnl-3.7.0.tar.gz
 
 BuildRequires: flex bison libtool autoconf automake swig
 Requires:      %{name} = %{version}-%{release}
@@ -97,6 +89,12 @@ cd python
 %{python3_sitearch}/netlink-*.egg-info
 
 %changelog
+* Mon Nov 7 2022 chengyechun <chengyechun1@huawei.com> - 3.7.0-1
+- Type:enhancement
+- ID:NA
+- SUG:NA
+- DESC:update to libnl-3.7.0
+
 * Wed Mar 10 2021 zengwefeng <zwfeng@huawei.com> - 3.5.0-4
 - Type:bugfix
 - ID:NA
