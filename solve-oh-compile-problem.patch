@@ -14,6 +14,17 @@ diff -urN libnl-3.7.0/include/netlink-private/utils.h libnl-3.7.0-new/include/ne
  	} while (0)
 
  /*****************************************************************************/
+diff -urN libnl-3.7.0/lib/route/link/vrf.c libnl-3.7.0-new/lib/route/link/vrf.c
+--- libnl-3.7.0/lib/route/link/vrf.c	2022-05-24 16:55:12.000000000 +0800
++++ libnl-3.7.0-new/lib/route/link/vrf.c	2024-01-15 17:14:53.121653400 +0800
+@@ -27,7 +27,6 @@
+ #include <netlink/route/link/vrf.h>
+
+ #include <linux/if_link.h>
+-#include <linux-private/linux/rtnetlink.h>
+
+ #define VRF_TABLE_ID_MAX  RT_TABLE_MAX
+
 diff -urN libnl-3.7.0/lib/route/mdb.c libnl-3.7.0-new/lib/route/mdb.c
 --- libnl-3.7.0/lib/route/mdb.c	2022-05-24 16:55:12.000000000 +0800
 +++ libnl-3.7.0-new/lib/route/mdb.c	2024-01-13 18:23:23.811971400 +0800
