@@ -184,7 +184,7 @@ if (!defined(ohos_lite)) {
       "libnl-3.7.0/lib/route/link/ifb.c",
       "libnl-3.7.0/lib/route/link/inet6.c",
       "libnl-3.7.0/lib/route/link/inet.c",
-      "libnl-3.7.0/lib/route/link/ip6pre.c",
+      "libnl-3.7.0/lib/route/link/ip6gre.c",
       "libnl-3.7.0/lib/route/link/ip6tnl.c",
       "libnl-3.7.0/lib/route/link/ip6vti.c",
       "libnl-3.7.0/lib/route/link/ipgre.c",

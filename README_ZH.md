@@ -11,18 +11,10 @@
 #### patch包说明
 
 以下patch包为openEuler:libnl3开源库本身携带
-backport-lib-add-include-netlink-private-nl-auto-h-header.patch
-backport-lib-use-proper-int-type-for-id-attributes-in-nl_object_identical.patch
-backport-route-link-add-RTNL_LINK_REASM_OVERLAPS-stat.patch
-backport-route-link-Check-for-null-pointer-in-macvlan.patch
-backport-rtnl-link-fix-leaking-rtnl_link_af_ops-in-link_msg_parser.patch
-backport-rtnl-route-fix-NLE_NOMEM-handling-in-parse_multipath.patch
 solve-redefinition-of-struct-ipv6_mreq.patch
 
 以下patch包为解决在OpenHarmony工程下编译存在的问题自行添加
-lib-utils-c.patch
-src-lib-utils-c.patch
-vrf-c.patch
+solve-oh-compile-problem.patch
 
 #### 参与贡献
 
