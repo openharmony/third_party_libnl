@@ -29,15 +29,6 @@ diff -urN libnl-3.7.0/lib/route/mdb.c libnl-3.7.0-new/lib/route/mdb.c
 diff -urN libnl-3.7.0/lib/utils.c libnl-3.7.0-new/lib/utils.c
 --- libnl-3.7.0/lib/utils.c	2022-07-06 23:21:11.000000000 +0800
 +++ libnl-3.7.0-new/lib/utils.c	2024-01-13 18:24:36.832909100 +0800
-@@ -157,7 +157,7 @@
-  * Cancels down a byte counter until it reaches a reasonable
-  * unit. The chosen unit is assigned to \a unit.
-  * This function assume 1024 bytes in one kilobyte
-- *
-+ *
-  * @return The cancelled down byte counter in the new unit.
-  */
- double nl_cancel_down_bytes(unsigned long long l, char **unit)
 @@ -219,8 +219,8 @@
 
  int nl_rate2str(unsigned long long rate, int type, char *buf, size_t len)
@@ -57,18 +48,9 @@ diff -urN libnl-3.7.0/lib/utils.c libnl-3.7.0-new/lib/utils.c
  }
 
  /**
-@@ -426,7 +427,7 @@
-  *
-  * Supports the environment variables:
-  *   PROC_NET_PSCHED  - may point to psched file in /proc
-- *   PROC_ROOT        - may point to /proc fs */
-+ *   PROC_ROOT        - may point to /proc fs */
- static void get_psched_settings(void)
- {
- 	char name[FILENAME_MAX];
 diff -urN libnl-3.7.0/src/lib/utils.c libnl-3.7.0-new/src/lib/utils.c
 --- libnl-3.7.0/src/lib/utils.c	2022-05-24 16:55:12.000000000 +0800
-+++ libnl-3.7.0-new/src/lib/utils.c	2024-01-13 18:26:00.112970500 +0800
++++ libnl-3.7.0-new/src/lib/utils.c	2024-01-15 16:17:20.093386000 +0800
 @@ -24,6 +24,8 @@
  #include <dlfcn.h>
  #endif
