@@ -11,7 +11,7 @@
 
 The following patches is carried by the openEuler:libnl3 open source library:
 
-solve-redefinition-of-struct-ipv6_mreq.patch
+slove-oh-update-sp3.patch
 
 The following patches are added to solve the compilation problem under the OpenHarmony project:
 

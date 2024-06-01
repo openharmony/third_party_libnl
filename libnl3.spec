@@ -1,10 +1,30 @@
 Name:          libnl3
 Version:       3.7.0
-Release:       1
+Release:       4
 Summary:       Providing APIs to netlink protocol based Linux kernel interfaces
 License:       LGPLv2
 URL:           http://www.infradead.org/~tgr/libnl/
 Source:        https://github.com/thom311/libnl/releases/download/libnl3_7_0/libnl-3.7.0.tar.gz
+
+Patch6000:     backport-prevent-segfault-in-af_request_type.patch
+Patch6001:     backport-fix-bridge-info-parsing.patch
+
+Patch9000:     solve-redefinition-of-struct-ipv6_mreq.patch
+
+patch6002:      backport-add-some-tests-about-addr-class-rule-neigh-qdisc.patch
+patch6003:      backport-clear-XFRM_SP_ATTR_TMPL-when-removing-the-last-template.patch
+patch6004:      backport-fix-reference-counters-of-sa-selector-addresses.patch
+patch6005:      backport-do-not-use-static-array-indices-for-buffer.patch
+patch6006:      backport-fix-leak-in-error-handling-of-rtnl_flower_append_action.patch
+patch6007:      backport-fix-signed-overflow-warning-in-nl_object_diff.patch
+patch6008:      backport-workaround-coverity-warning-about-time_t-handling.patch
+patch6009:      backport-fix-leaking-usertemplate-in-xfrmnl_sp_parse.patch
+patch6010:      backport-avoid-integer-overflow-in-rtnl_tc_calc_cell_log.patch
+patch6011:      backport-fix-crashes-in-case-of-ENOMEM.patch
+patch6012:      backport-accept-NULL-argument-in-nla_nest_cancel-for-robustness.patch
+patch6013:      backport-fix-error-handling-in-nl_str2ip_protos.patch
+patch6014:      backport-handle-negative-and-zero-size-in-nla_memcpy.patch
+patch6015:      backport-use-thread-safe-gmtime_r-instead-of-gmtime.patch
 
 BuildRequires: flex bison libtool autoconf automake swig
 Requires:      %{name} = %{version}-%{release}
@@ -89,11 +109,46 @@ cd python
 %{python3_sitearch}/netlink-*.egg-info
 
 %changelog
-* Mon Nov 7 2022 chengyechun <chengyechun1@huawei.com> - 3.7.0-1
+* Thu Apr 25 2024 sunhai <sunhai10@huawei.com> - 3.7.0-4
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:sync some pathes from upstream
+
+* Fri Jan 12 2024 chengyechun <chengyechun1@huawei.com> - 3.7.0-3
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:Use the user-mode IPv6 header file
+
+* Mon Aug 14 2023 chengyechun <chengyechun1@huawei.com> - 3.7.0-2
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:prevent segfault in af_request_type
+       fix bridge info parsing
+
+* Wed Nov 9 2022 chengyechun <chengyechun1@huawei.com> - 3.7.0-1
 - Type:enhancement
 - ID:NA
 - SUG:NA
 - DESC:update to libnl-3.7.0
+
+* Sat Dec 18 2021 chengyechun <chengyechun1@huawei.com> - 3.5.0-6
+- Type:bugfix
+- ID:NA
+- SUG:NA
+-DES:add seome tests about add and delele addr,
+     add and delete neigh,
+     add and delete qdisc,
+     add link and rule,
+     delete route;
+
+* Thu Dec 16 2021 chengyechun <chengyechun1@huawei.com> - 3.5.0-5
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DES:add a test:test add route
 
 * Wed Mar 10 2021 zengwefeng <zwfeng@huawei.com> - 3.5.0-4
 - Type:bugfix
