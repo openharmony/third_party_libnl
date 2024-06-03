@@ -12,6 +12,10 @@ if (!defined(ohos_lite)) {
 libnl_path = rebase_path("//third_party/libnl")
 exec_script("install.sh", [ "$libnl_path" ])
 
+config("libnl_share_public_config") {
+  include_dirs = [ "//third_party/libnl/libnl-3.7.0/include/" ]
+}
+
 action("build_grammar") {
   script = "/usr/bin/env"
   outputs = [ "$target_out_dir/gen/lib/route/pktloc_grammar.c" ]
@@ -88,6 +92,8 @@ if (!defined(ohos_lite)) {
       rebase_path("$ematch_path"),
       rebase_path("$syntax_path"),
     ]
+
+    public_configs = [ ":libnl_share_public_config" ]
 
     sources = [
       "libnl-3.7.0/lib/addr.c",

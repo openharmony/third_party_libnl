@@ -28,7 +28,15 @@
         },
         "build": {
             "sub_component": [],
-            "inner_kits": [],
+            "inner_kits": [
+                {
+                    "header": {
+                        "header_base": "//third_party/libnl/",
+                        "header_files": []
+                    },
+                    "name": "//third_party/libnl:libnl_share"
+                }
+            ],
             "test": []
         }
     }
