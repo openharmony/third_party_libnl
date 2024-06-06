@@ -11,7 +11,7 @@
 #### patch包说明
 
 以下patch包为openEuler:libnl3开源库本身携带
-solve-redefinition-of-struct-ipv6_mreq.patch
+slove-oh-update-sp3.patch
 
 以下patch包为解决在OpenHarmony工程下编译存在的问题自行添加
 solve-oh-compile-problem.patch

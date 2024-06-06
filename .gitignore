@@ -13,6 +13,7 @@ defs.h.in~
 /lib/stamp-h1
 test-suite.log
 libnl-3.7.0
+!slove-oh-update-sp3.patch
 !solve-oh-compile-problem.patch
 /libnl-1.pc
 /lib/defs.h
