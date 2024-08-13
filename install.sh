@@ -16,4 +16,5 @@ cd $1/libnl-3.7.0
 ./configure
 patch -p1 < $1/slove-oh-update-sp3.patch --fuzz=0 --no-backup-if-mismatch
 patch -p1 < $1/solve-oh-compile-problem.patch --fuzz=0 --no-backup-if-mismatch
+patch -p1 < $1/slove-oh-bug-fix.patch --fuzz=0 --no-backup-if-mismatch
 exit 0
