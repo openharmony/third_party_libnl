@@ -60,7 +60,7 @@
             <filefilter name="defaultFilter" desc="Files not to check">
                 <filteritem type="filename" name="*.8|*.png|*.sym" desc="desc files"/>
                 <filteritem type="filepath" name="tests/.*" desc="Test files"/>
-                <filteritem type="filename" name="libnl-3.5.0.tar.gz*" desc="tar.gz files"/>
+                <filteritem type="filename" name="libnl-3.5.0.tar.gz" desc="desc files"/>
             </filefilter>
             <filefilter name="defaultPolicyFilter" desc="Filters for compatibility,license header policies">
             </filefilter>
