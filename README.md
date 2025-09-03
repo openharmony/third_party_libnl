@@ -11,11 +11,11 @@
 
 The following patches is carried by the openEuler:libnl3 open source library:
 
-slove-oh-update-sp3.patch
+
 
 The following patches are added to solve the compilation problem under the OpenHarmony project:
 
-solve-oh-compile-problem.patch
+solve-oh-compile-problem3_11_0.patch
 
 #### Contribution
 
