@@ -9,7 +9,7 @@
     },
     "dirs": {},
     "scripts": {},
-    "licensePath": "thirdparth/libnl-3.7.0/COPYING",
+    "licensePath": "thirdparth/libnl-libnl3.11.0/COPYING",
     "readmePath":{
         "en": "README.md",
         "zh": "README_ZH.md"
