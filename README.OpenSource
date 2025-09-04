@@ -1,10 +1,10 @@
 [
     {
-        "Name": "libnl3",
+        "Name": "libnl",
         "License": "LGPL V2.1",
         "License File": "COPYING",
         "Version Number": "3.11.0",
-        "Owner": "yanxiaotao@huawei.com",
+        "Owner": "wujun156@huawei.com",
         "Upstream URL": "https://github.com/thom311/libnl/archive/refs/tags/libnl3_11_0.tar.gz",
         "Description": "Providing APIs to netlink protocol based Linux kernel interfaces."
   }
