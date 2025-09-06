@@ -8,15 +8,13 @@
 
 set -e
 cd $1
-if [ -d "libnl" ];then
-    rm -rf libnl
+if [ -d "libnl-3.7.0" ];then
+    rm -rf libnl-3.7.0
 fi
-tar xvf libnl-libnl3_11_0.tar.gz
-mv libnl-libnl3_11_0 libnl
-cd $1/libnl
-apt-get update
-apt-get install autoconf automake libtool -y
-./autogen.sh
+tar xvf libnl-3.7.0.tar.gz
+cd $1/libnl-3.7.0
 ./configure
-patch -p1 < $1/solve-oh-compile-problem3_11_0.patch --fuzz=0 --no-backup-if-mismatch
+patch -p1 < $1/slove-oh-update-sp3.patch --fuzz=0 --no-backup-if-mismatch
+patch -p1 < $1/solve-oh-compile-problem.patch --fuzz=0 --no-backup-if-mismatch
+patch -p1 < $1/slove-oh-bug-fix.patch --fuzz=0 --no-backup-if-mismatch
 exit 0
