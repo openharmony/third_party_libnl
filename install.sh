@@ -14,8 +14,6 @@ fi
 tar xvf libnl-libnl3_11_0.tar.gz
 mv libnl-libnl3_11_0 libnl
 cd $1/libnl
-apt-get update
-apt-get install autoconf automake libtool -y
 ./autogen.sh
 ./configure
 patch -p1 < $1/solve-oh-compile-problem3_11_0.patch --fuzz=0 --no-backup-if-mismatch
