@@ -8,6 +8,9 @@
 
 set -e
 cd $1
+touch test.lock
+(
+    flock -x 180
 if [ -d "libnl" ];then
     rm -rf libnl
 fi
@@ -18,3 +21,4 @@ cd $1/libnl
 ./configure
 patch -p1 < $1/solve-oh-compile-problem3_11_0.patch --fuzz=0 --no-backup-if-mismatch
 exit 0
+)180>test.lock
