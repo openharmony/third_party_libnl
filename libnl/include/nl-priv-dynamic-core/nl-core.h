@@ -6,6 +6,8 @@
 #ifndef __NL_SHARED_CORE_NL_CORE_H__
 #define __NL_SHARED_CORE_NL_CORE_H__
 
+#include <base/nl-base-utils.h>
+
 #define NL_SOCK_PASSCRED (1 << 1)
 #define NL_OWN_PORT (1 << 2)
 #define NL_MSG_PEEK (1 << 3)

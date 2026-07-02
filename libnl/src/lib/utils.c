@@ -222,9 +222,6 @@ void nl_cli_load_module(const char *prefix, const char *name)
 {
 	char path[FILENAME_MAX+1];
 
-	snprintf(path, sizeof(path), "%s/%s/%s.so",
-		 _NL_PKGLIBDIR, prefix, name);
-
 #ifdef HAVE_DLFCN_H
 	{
 		void *handle;

@@ -20,6 +20,11 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
+#define NTF_EXT_MANAGED		(1 << 0)
+#define NTF_EXT_LOCKED		(1 << 1)
+
+#define NDA_MAX (__NDA_MAX - 1)
+
 #ifndef DISABLE_PTHREADS
 #include <pthread.h>
 #endif
@@ -162,10 +167,8 @@
 
 #define _nl_assert_addr_family(addr_family)                       \
 	do {                                                      \
-		typeof(addr_family) _addr_family = (addr_family); \
-                                                                  \
-		_nl_assert(_addr_family == AF_INET ||             \
-			   _addr_family == AF_INET6);             \
+		_nl_assert(addr_family == AF_INET ||             \
+			   addr_family == AF_INET6);             \
 	} while (0)
 
 /*****************************************************************************/
@@ -185,9 +188,11 @@
 
 /*****************************************************************************/
 
+#ifndef ARRAY_SIZE
 #define _NL_N_ELEMENTS(arr) (sizeof(arr) / sizeof((arr)[0]))
 
 #define ARRAY_SIZE(arr) _NL_N_ELEMENTS(arr)
+#endif
 
 /*****************************************************************************/
 
@@ -258,7 +263,7 @@ static inline bool _nl_memeq(const void *s1, const void *s2, size_t len)
 	return _nl_memcmp(s1, s2, len) == 0;
 }
 
-static inline void *_nl_memcpy(void *restrict dest, const void *restrict src,
+static inline void *_nl_memcpy(void *__restrict dest, const void *__restrict src,
 			       size_t n)
 {
 	/* Workaround undefined behavior in memcpy() with NULL pointers. */
@@ -703,7 +708,7 @@ static inline char *_nl_inet_ntop(int addr_family, const void *addr, char *buf)
 static inline char *_nl_inet_ntop_dup(int addr_family, const void *addr)
 {
 	return (char *)_nl_inet_ntop(addr_family, addr,
-				     malloc((addr_family == AF_INET) ?
+				     (char *)malloc((addr_family == AF_INET) ?
 						    INET_ADDRSTRLEN :
 						    INET6_ADDRSTRLEN));
 }

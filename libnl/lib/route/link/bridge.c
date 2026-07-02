@@ -13,7 +13,7 @@
 
 #include "nl-default.h"
 
-#include <linux/if_bridge.h>
+#include <linux-private/linux/if_bridge.h>
 #include <linux/rtnetlink.h>
 
 #include <netlink/netlink.h>
@@ -40,6 +40,7 @@
 #define BRIDGE_ATTR_MST			(1UL << 7)
 
 #define PRIV_FLAG_NEW_ATTRS		(1UL << 0)
+#define RTEXT_FILTER_MST	(1 << 7)
 
 struct bridge_data
 {
@@ -248,9 +249,11 @@ static struct nla_policy br_attrs_policy[IFLA_BRPORT_MAX+1] = {
 	[IFLA_BRPORT_BCAST_FLOOD]		= { .type = NLA_U8 },
 	[IFLA_BRPORT_NEIGH_SUPPRESS]		= { .type = NLA_U8 },
 	[IFLA_BRPORT_ISOLATED]			= { .type = NLA_U8 },
+#ifdef OPEN_HARMONY_UPDATE_ADAPT_KERNEL_VERSION
 	[IFLA_BRPORT_LOCKED]			= { .type = NLA_U8 },
 	[IFLA_BRPORT_MAB]			= { .type = NLA_U8 },
 	[IFLA_BRPORT_NEIGH_VLAN_SUPPRESS]	= { .type = NLA_U8 },
+#endif
 };
 
 static void check_flag(struct rtnl_link *link, struct nlattr *attrs[],
@@ -322,10 +325,12 @@ static int bridge_parse_protinfo(struct rtnl_link *link, struct nlattr *attr,
 	check_flag(link, br_attrs, IFLA_BRPORT_NEIGH_SUPPRESS,
 		   RTNL_BRIDGE_NEIGH_SUPPRESS);
 	check_flag(link, br_attrs, IFLA_BRPORT_ISOLATED, RTNL_BRIDGE_ISOLATED);
+#ifdef OPEN_HARMONY_UPDATE_ADAPT_KERNEL_VERSION
 	check_flag(link, br_attrs, IFLA_BRPORT_LOCKED, RTNL_BRIDGE_LOCKED);
 	check_flag(link, br_attrs, IFLA_BRPORT_MAB, RTNL_BRIDGE_MAB);
 	check_flag(link, br_attrs, IFLA_BRPORT_NEIGH_VLAN_SUPPRESS,
 		   RTNL_BRIDGE_NEIGH_VLAN_SUPPRESS);
+#endif
 
 	return 0;
 }
@@ -720,6 +725,7 @@ static int bridge_fill_pi(struct rtnl_link *link, struct nl_msg *msg,
 			NLA_PUT_U8(msg, IFLA_BRPORT_ISOLATED,
 				   !!(bd->b_flags & RTNL_BRIDGE_ISOLATED));
 		}
+#ifdef OPEN_HARMONY_UPDATE_ADAPT_KERNEL_VERSION
 		if (bd->b_flags_mask & RTNL_BRIDGE_LOCKED) {
 			NLA_PUT_U8(msg, IFLA_BRPORT_LOCKED,
 				   !!(bd->b_flags & RTNL_BRIDGE_LOCKED));
@@ -733,6 +739,7 @@ static int bridge_fill_pi(struct rtnl_link *link, struct nl_msg *msg,
 				   !!(bd->b_flags &
 				      RTNL_BRIDGE_NEIGH_VLAN_SUPPRESS));
 		}
+#endif
 	}
 
 	if (bd->ce_mask & BRIDGE_ATTR_COST)

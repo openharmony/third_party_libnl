@@ -461,10 +461,12 @@ int rtnl_neigh_parse(struct nlmsghdr *n, struct rtnl_neigh **result)
 		neigh->ce_mask |= NEIGH_ATTR_NHID;
 	}
 
+#ifdef OPEN_HARMONY_UPDATE_ADAPT_KERNEL_VERSION
 	if (tb[NDA_FLAGS_EXT]) {
 		neigh->n_ext_flags = nla_get_u32(tb[NDA_FLAGS_EXT]);
 		neigh->ce_mask |= NEIGH_ATTR_EXT_FLAGS;
 	}
+#endif
 
 	/*
 	 * Get the bridge index for AF_BRIDGE family entries
@@ -777,6 +779,7 @@ static int build_neigh_msg(struct rtnl_neigh *tmpl, int cmd, int flags,
 	if (tmpl->ce_mask & NEIGH_ATTR_NHID)
 		NLA_PUT_U32(msg, NDA_NH_ID, tmpl->n_nhid);
 
+#ifdef OPEN_HARMONY_UPDATE_ADAPT_KERNEL_VERSION
 	if (tmpl->ce_mask & NEIGH_ATTR_EXT_FLAGS) {
 		/* The kernel does not allow setting the locked flag from
 		 * userspace, so unset it in the request. */
@@ -786,6 +789,7 @@ static int build_neigh_msg(struct rtnl_neigh *tmpl, int cmd, int flags,
 		if (ext_flags)
 			NLA_PUT_U32(msg, NDA_FLAGS_EXT, ext_flags);
 	}
+#endif
 
 	*result = msg;
 	return 0;

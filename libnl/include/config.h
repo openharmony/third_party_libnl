@@ -6,11 +6,11 @@
 
 /* Define to 1 if you have the declaration of `getprotobyname_r', and to 0 if
    you don't. */
-#define HAVE_DECL_GETPROTOBYNAME_R 1
+#define HAVE_DECL_GETPROTOBYNAME_R 0
 
 /* Define to 1 if you have the declaration of `getprotobynumber_r', and to 0
    if you don't. */
-#define HAVE_DECL_GETPROTOBYNUMBER_R 1
+#define HAVE_DECL_GETPROTOBYNUMBER_R 0
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H 1
@@ -34,7 +34,7 @@
 #define HAVE_STDLIB_H 1
 
 /* Define to 1 if you have the `strerror_l' function. */
-#define HAVE_STRERROR_L 1
+#define HAVE_STRERROR_L 0
 
 /* Define to 1 if you have the <strings.h> header file. */
 #define HAVE_STRINGS_H 1
