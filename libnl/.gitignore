@@ -43,20 +43,20 @@ test-suite.log
 /doc/images/asciidoc__*.png
 /doc/images/core__*
 /doc/libnl.dict
-/include/config.h
+# (OHOS prepared, tracked) /include/config.h
 /include/config.h.in
-/include/netlink/version.h
+# (OHOS prepared, tracked) /include/netlink/version.h
 /include/stamp-h1
 /lib/defs.h
 /lib/lex.yy.c
 /lib/libnl-*.so*
 /lib/libnl.so*
-/lib/route/cls/ematch_grammar.[ch]
-/lib/route/cls/ematch_syntax.[ch]
-/lib/route/pktloc_grammar.c
-/lib/route/pktloc_grammar.h
-/lib/route/pktloc_syntax.c
-/lib/route/pktloc_syntax.h
+# (OHOS prepared, tracked) /lib/route/cls/ematch_grammar.[ch]
+# (OHOS prepared, tracked) /lib/route/cls/ematch_syntax.[ch]
+# (OHOS prepared, tracked) /lib/route/pktloc_grammar.c
+# (OHOS prepared, tracked) /lib/route/pktloc_grammar.h
+# (OHOS prepared, tracked) /lib/route/pktloc_syntax.c
+# (OHOS prepared, tracked) /lib/route/pktloc_syntax.h
 /lib/stamp-h1
 /libnl-1.pc
 /libtool
