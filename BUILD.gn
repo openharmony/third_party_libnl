@@ -9,75 +9,16 @@ if (!defined(ohos_lite)) {
   import("//build/ohos.gni")
 }
 
-libnl_path = rebase_path("//third_party/libnl")
-exec_script("install.sh", [ "$libnl_path" ])
+# 代码环境已提前准备（解压 + configure + patch + 语法文件预生成），
+# 由仓库根的 prepare.sh 在升级时手动完成，构建期不再 exec_script。
 
 config("libnl_share_public_config") {
   include_dirs = [ "//third_party/libnl/libnl/include/" ]
 }
 
-action("build_grammar") {
-  script = "/usr/bin/env"
-  outputs = [ "$target_out_dir/gen/lib/route/pktloc_grammar.c" ]
-  grammer_hh = rebase_path("$target_out_dir/gen/lib/route/pktloc_grammar.h")
-  args = [
-    "flex",
-    "--header-file=$grammer_hh",
-    "-o",
-    rebase_path("$target_out_dir/gen/lib/route/pktloc_grammar.c"),
-    rebase_path("libnl/lib/route/pktloc_grammar.l"),
-  ]
-}
-
-action("pktloc_syntax") {
-  script = "/usr/bin/env"
-  outputs = [ "$target_out_dir/gen/lib/route/pktloc_syntax.c" ]
-  args = [
-    "bison",
-    "-y",
-    "-d",
-    "-o",
-    rebase_path("$target_out_dir/gen/lib/route/pktloc_syntax.c"),
-    rebase_path("libnl/lib/route/pktloc_syntax.y"),
-  ]
-}
-
-action("ematch_grammar") {
-  script = "/usr/bin/env"
-  outputs = [ "$target_out_dir/gen/lib/route/cls/ematch_grammar.c" ]
-  grammer_hh = rebase_path("$target_out_dir/gen/lib/route/cls/ematch_grammar.h")
-  args = [
-    "flex",
-    "--header-file=$grammer_hh",
-    "-o",
-    rebase_path("$target_out_dir/gen/lib/route/cls/ematch_grammar.c"),
-    rebase_path("libnl/lib/route/cls/ematch_grammar.l"),
-  ]
-}
-
-action("ematch_syntax") {
-  script = "/usr/bin/env"
-  outputs = [ "$target_out_dir/gen/lib/route/cls/ematch_syntax.c" ]
-  args = [
-    "bison",
-    "-y",
-    "-d",
-    "-o",
-    rebase_path("$target_out_dir/gen/lib/route/cls/ematch_syntax.c"),
-    rebase_path("libnl/lib/route/cls/ematch_syntax.y"),
-  ]
-}
 if (!defined(ohos_lite)) {
   ohos_shared_library("libnl_share") {
     branch_protector_ret = "pac_ret"
-    grammer_outputs = get_target_outputs(":build_grammar")
-    grammer_path = get_path_info(grammer_outputs[0], "dir")
-    pktloc_outputs = get_target_outputs(":pktloc_syntax")
-    pktloc_path = get_path_info(pktloc_outputs[0], "dir")
-    ematch_outputs = get_target_outputs(":ematch_grammar")
-    ematch_path = get_path_info(ematch_outputs[0], "dir")
-    syntax_outputs = get_target_outputs(":ematch_syntax")
-    syntax_path = get_path_info(syntax_outputs[0], "dir")
 
     include_dirs = [
       "libnl",
@@ -85,13 +26,6 @@ if (!defined(ohos_lite)) {
       "libnl/lib",
       "libnl/lib/route/cls",
       "libnl/lib/route",
-    ]
-
-    include_dirs += [
-      rebase_path("$grammer_path"),
-      rebase_path("$pktloc_path"),
-      rebase_path("$ematch_path"),
-      rebase_path("$syntax_path"),
     ]
 
     public_configs = [ ":libnl_share_public_config" ]
@@ -153,8 +87,8 @@ if (!defined(ohos_lite)) {
       "libnl/lib/route/nexthop_encap.c",
       "libnl/lib/route/nh_encap_mpls.c",
       "libnl/lib/route/pktloc.c",
-      rebase_path("$grammer_path/pktloc_grammar.c"),
-      rebase_path("$pktloc_path/pktloc_syntax.c"),
+      "libnl/lib/route/pktloc_grammar.c",
+      "libnl/lib/route/pktloc_syntax.c",
       "libnl/lib/route/qdisc.c",
       "libnl/lib/route/route.c",
       "libnl/lib/route/route_obj.c",
@@ -170,8 +104,8 @@ if (!defined(ohos_lite)) {
       "libnl/lib/route/cls/basic.c",
       "libnl/lib/route/cls/cgroup.c",
       "libnl/lib/route/cls/ematch.c",
-      rebase_path("$ematch_path/ematch_grammar.c"),
-      rebase_path("$syntax_path/ematch_syntax.c"),
+      "libnl/lib/route/cls/ematch_grammar.c",
+      "libnl/lib/route/cls/ematch_syntax.c",
       "libnl/lib/route/cls/flower.c",
       "libnl/lib/route/cls/fw.c",
       "libnl/lib/route/cls/mall.c",
@@ -254,12 +188,6 @@ if (!defined(ohos_lite)) {
       "libnl/src/lib/utils.c",
     ]
 
-    deps = [
-      ":build_grammar",
-      ":ematch_grammar",
-      ":ematch_syntax",
-      ":pktloc_syntax",
-    ]
     defines = [ "NL_DEBUG" ]
     cflags = [
       "-Wno-error",

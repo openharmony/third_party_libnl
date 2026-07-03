@@ -10,11 +10,16 @@
 
 #### patch包说明
 
-以下patch包为openEuler:libnl3开源库本身携带
+solve-oh-compile-problem3_11_0.patch 应用 OHOS 适配 patch，并把（解决冲突后的）
+patch 归档到archive/patches/ 供后续版本升级复用
 
+#### 构建与升级
 
-以下patch包为解决在OpenHarmony工程下编译存在的问题自行添加
-solve-oh-compile-problem3_11_0.patch
+本仓库采用“代码环境提前准备”方式：`libnl/` 源码树已完成解压、configure、
+打 patch 及 flex/bison 语法文件预生成并入库，构建期由 `BUILD.gn` 直接编译，
+不依赖 autotools/flex/bison，也不在 `gn gen` 阶段执行脚本。升级 libnl 时请运行
+`prepare.sh` 并参考 [docs/UPGRADE_GUIDE.md](docs/UPGRADE_GUIDE.md)。
+
 
 #### 参与贡献
 
